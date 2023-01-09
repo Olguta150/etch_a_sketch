@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+
+#container {
+    display: grid;
+    width: 350px;
+    height: 350px;
+    background-color: rgb(129, 174, 174);
+}
+
+.cell {
+    display: grid;
+    border: 1px solid #000;
+    background-color: #fff;
+}
