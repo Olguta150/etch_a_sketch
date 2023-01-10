@@ -8,10 +8,24 @@ body {
     background-color: blanchedalmond;
 }
 
+#main {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    gap: 50px;
+}
+
+#title {
+    padding-top: 55px;
+    font-size: 60px;
+}
+
 #container {
     display: grid;
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     background-color: rgb(129, 174, 174);
 }
 
@@ -19,4 +33,10 @@ body {
     display: grid;
     border: 1px solid #000;
     background-color: #fff;
+}
+
+.btn {
+    padding: 15px 25px;
+    font-size: 20px;
+    font-weight: 600;
 }
