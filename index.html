@@ -10,8 +10,18 @@
 </head>
 <body>
     <div id="main">
+        <div id="title">Etch a sketch</div>
         <div id="container"></div>
-        <div id="buttons"></div>
+        <div id="actions">
+            <div id="buttons">
+                <button id="color" class="btn">Color</button>
+                <button id="eraser" class="btn">Eraser</button>
+                <button id="clear" class="btn">Clear</button>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="16" id="range">
+            </div>
+        </div>
     </div>
 </body>
 </html>
