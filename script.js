@@ -18,11 +18,14 @@ function randomColor(event) {
     event.target.style.backgroundColor = `#${color}`;
 }
 
-function colorCell() {
+function whiteColor(event) {
+    event.target.style.background = `#fff`;
+}
+
+function actionCell(func) {
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
-        cell.addEventListener('mouseover', randomColor)
+        cell.addEventListener('mouseover', func)
     })
 }
 
-colorCell();
