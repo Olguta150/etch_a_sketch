@@ -12,3 +12,17 @@ function grid(value) {
 }
 
 grid(7);
+
+function randomColor(event) {
+    let color = Math.floor(Math.random() * 16777215).toString(16);
+    event.target.style.backgroundColor = `#${color}`;
+}
+
+function hoverCell() {
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', randomColor)
+    })
+}
+
+hoverCell();
