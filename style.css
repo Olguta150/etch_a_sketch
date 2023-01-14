@@ -9,8 +9,10 @@ body {
 }
 
 #main {
+    width: 100vw;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
     justify-content: center;
     justify-items: center;
     align-content: center;
@@ -24,14 +26,14 @@ body {
 
 #container {
     display: grid;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     background-color: rgb(129, 174, 174);
 }
 
 .cell {
     display: grid;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     background-color: #fff;
 }
 
