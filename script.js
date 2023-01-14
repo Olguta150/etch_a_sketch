@@ -1,3 +1,25 @@
+// function gridSize() {
+//     let range = document.getElementById('range');
+//     range.addEventListener('change', (e) => {
+//         console.log(e.target.value);
+//         // return e.tartget.value;
+//         grid(e.target.value);
+//     })
+// }
+let value = 16;
+
+// function gridSize() {
+//     let range = document.getElementById('range');
+//     range.addEventListener('input', (e) => {
+//         console.log(e.target.value);
+//         // return e.tartget.value;
+//         grid(range.value);
+//     })
+// }
+
+// gridSize();
+
+
 function grid(value) {
     let container = document.querySelector('#container');
     container.style.display = 'grid';
@@ -6,12 +28,15 @@ function grid(value) {
 
     for(let i = 0; i < value*value; i++) {
         let cell = document.createElement('div');
+        cell.addEventListener('mouseover', () => {
+            cell.style.background = `#000`;
+        });
         cell.classList.add('cell');
         container.appendChild(cell);
     }
 }
 
-grid(7);
+grid(value);
 
 function randomColor(event) {
     let color = Math.floor(Math.random() * 16777215).toString(16);
@@ -22,10 +47,147 @@ function whiteColor(event) {
     event.target.style.background = `#fff`;
 }
 
-function actionCell(func) {
-    let cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => {
-        cell.addEventListener('mouseover', func)
+function pickColor(event) {
+    let color = document.getElementById('color-input');
+    color.addEventListener('change', () => {
+        console.log(color.value);
+        return color.value;
     })
 }
+
+function color(event) {
+    event.target.style.background = pickColor;
+}
+color();
+
+function gridSize() {
+    let range = document.getElementById('range');
+    range.addEventListener('input', (e) => {
+        let container = document.querySelector('#container');
+        container.innerHTML = "";
+        grid(range.value);
+    })
+}
+
+gridSize();
+
+function clearAll() {
+    let container = document.querySelector('#container');
+    let clear = document.getElementById('clear');
+    let range = document.getElementById('range');
+    clear.addEventListener('click', () => {
+        container.innerHTML = "";
+        grid(range.value);
+    })
+}
+
+clearAll();
+
+// function actionCell(func) {
+//     let cells = document.querySelectorAll('.cell');
+//     cells.forEach(cell => {
+//         cell.addEventListener('mouseover', func)
+//     })
+// }
+
+// function whiteColor(event) {
+//     let eraserBtn = document.getElementById('eraser');
+//     eraserBtn.addEventListener('click', () => {
+//         event.target.style.background = `#fff`;
+//     })
+// }
+// whiteColor();
+
+// function actionCell() {
+//     let eraserBtn = document.getElementById('eraser');
+//     let cells = document.querySelectorAll('.cell');
+//     eraserBtn.addEventListener('click', () => {
+//         cells.forEach(cell =>{
+//             cell.addEventListener('mouseover', () => {
+//                 cell.style.background = '#fff';
+//             });
+//         })
+//     });
+// }
+// actionCell();
+
+// function colorCell() {
+//     let colorBtn = document.getElementById('color');
+//     let cells = document.querySelectorAll('.cell');
+//     colorBtn.addEventListener('click', () => {
+//         cells.forEach(cell => {
+//             cell.addEventListener('mouseover', randomColor);
+//         })
+//     });
+// }
+
+function change(color) {
+    let cells = document.querySelectorAll('.cell');
+
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', color);
+    })
+}
+
+
+function actionCell() {
+    // let eraserBtn = document.getElementById('eraser');
+    // let colorBtn = document.getElementById('color');
+    // let clearBtn = document.getElementById('clear');
+    let buttons = document.querySelectorAll('button');
+    // console.log(buttons);
+    // let cells = document.querySelectorAll('.cell');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            if(button.id === 'eraser') {
+                // cell.style.background = '#fff';
+                console.log(button.id);
+                change(whiteColor);
+                // cells.forEach(cell =>{
+                //     cell.addEventListener('mouseover', whiteColor);
+                // })
+            } else if(button.id === 'rainbow') {
+                console.log(button.id);
+                change(randomColor);
+                // cells.forEach(cell =>{
+                //     cell.addEventListener('mouseover', randomColor);
+                // })
+            } else if(button.id === 'color') {
+                console.log(button.id);
+                change(color);
+            }
+        });
+    })
+    // console.log(eraserBtn.id);
+}
+
+// function gridSize() {
+//     let range = document.getElementById('range');
+//     range.addEventListener('change', (e) => {
+//         console.log(e.target.value);
+//         return e.tartget.value;
+//     })
+// }
+
+// gridSize();
+
+// colorCell();
+
+// function buttonClick() {
+// }
+// let colorBtn = document.getElementById('color');
+// let eraserBtn = document.getElementById('eraser');
+// let clearBtn = document.getElementById('clear');
+
+// eraserBtn.addEventListener('click', () => actionCell(whiteColor));
+// colorBtn.addEventListener('click', () => actionCell(randomColor));
+
+// buttonClick();
+
+// function game() {
+//     colorCell();
+// }
+// game();
+
+actionCell();
 
