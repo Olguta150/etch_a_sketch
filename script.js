@@ -1,27 +1,15 @@
-// function gridSize() {
-//     let range = document.getElementById('range');
-//     range.addEventListener('change', (e) => {
-//         console.log(e.target.value);
-//         // return e.tartget.value;
-//         grid(e.target.value);
-//     })
-// }
+let colorBtn = document.getElementById('color');
+let colorInput = document.getElementById('color-input');
+let rainbowBtn = document.getElementById('rainbow');
+let eraserBtn = document.getElementById('eraser');
+let clearBtn = document.getElementById('clear');
+// let cells = document.querySelectorAll('.cell');
+let container = document.querySelector('#container');
+let range = document.getElementById('range');
+
 let value = 16;
 
-// function gridSize() {
-//     let range = document.getElementById('range');
-//     range.addEventListener('input', (e) => {
-//         console.log(e.target.value);
-//         // return e.tartget.value;
-//         grid(range.value);
-//     })
-// }
-
-// gridSize();
-
-
 function grid(value) {
-    let container = document.querySelector('#container');
     container.style.display = 'grid';
     container.style.gridTemplateRows = `repeat(${value}, 1fr)`;
     container.style.gridTemplateColumns = `repeat(${value}, 1fr)`;
@@ -34,54 +22,116 @@ function grid(value) {
         cell.classList.add('cell');
         container.appendChild(cell);
     }
+    // pickColor();
+    // rainbow();
+    // eraser();
+    // clearAll();
 }
 
 grid(value);
 
-function randomColor(event) {
-    let color = Math.floor(Math.random() * 16777215).toString(16);
-    event.target.style.backgroundColor = `#${color}`;
-}
-
-function whiteColor(event) {
-    event.target.style.background = `#fff`;
-}
-
-function pickColor(event) {
-    let color = document.getElementById('color-input');
-    color.addEventListener('change', () => {
-        console.log(color.value);
-        return color.value;
-    })
-}
-
-function color(event) {
-    event.target.style.background = pickColor;
-}
-color();
+let cells = document.querySelectorAll('.cell');
 
 function gridSize() {
-    let range = document.getElementById('range');
-    range.addEventListener('input', (e) => {
-        let container = document.querySelector('#container');
+    // let range = document.getElementById('range');
+    range.addEventListener('input', () => {
+        // let container = document.querySelector('#container');
         container.innerHTML = "";
         grid(range.value);
+        pickColor();
+        rainbow();
+        eraser();
+        console.log('grid size');
+        // clearAll();
     })
 }
 
-gridSize();
+// gridSize();
+
+function randomColor() {
+    let color = Math.floor(Math.random() * 16777215).toString(16);
+    return `#${color}`;
+}
+
+function pickColor() {
+    colorBtn.addEventListener('click', () => {
+        cells.forEach(cell => {
+            cell.addEventListener('mouseover', (e) => {
+                let chooseColor = colorInput.value;
+                e.target.style.background = chooseColor;
+                console.log('color');
+            })
+        })
+    })
+}
+// pickColor();
+
+function rainbow() {
+    rainbowBtn.addEventListener('click', () => {
+        cells.forEach(cell => {
+            cell.addEventListener('mouseover', () => {
+                cell.style.backgroundColor = randomColor();
+                console.log('rainbow');
+            })
+        })
+    })
+}
+
+function eraser() {
+    eraserBtn.addEventListener('click', () => {
+        cells.forEach(cell => {
+            cell.addEventListener('mouseover', () => {
+                cell.style.background = `#ffffff`;
+                console.log('eraser');
+            })
+        })
+    })
+}
+// rainbow();
 
 function clearAll() {
-    let container = document.querySelector('#container');
+    // let container = document.querySelector('#container');
     let clear = document.getElementById('clear');
-    let range = document.getElementById('range');
+    // let range = document.getElementById('range');
     clear.addEventListener('click', () => {
         container.innerHTML = "";
         grid(range.value);
+        pickColor();
+        rainbow();
+        eraser();
+        console.log('clear all');
     })
 }
 
+pickColor();
+rainbow();
+eraser();
 clearAll();
+gridSize();
+
+// function whiteColor() {
+//     return `#fff`;
+// }
+
+// function pickColor() {
+//     return colorInput.value;
+// }
+
+// function change(button, color) {
+//     let cells = document.querySelectorAll('.cell');
+
+//     button.addEventListener('click', () => {
+//         cells.forEach(cell => {
+//             cell.addEventListener('mouseover', () => {
+//                 cell.style.background = color;
+//             });
+//         })
+//     })
+// }
+
+// change(colorBtn, pickColor);
+// change(rainbowBtn, randomColor);
+// change(eraserBtn, whiteColor);
 
 // function actionCell(func) {
 //     let cells = document.querySelectorAll('.cell');
@@ -120,46 +170,56 @@ clearAll();
 //         })
 //     });
 // }
+// let colorBtn = document.getElementById('color');
+// let rainbowBtn = document.getElementById('rainbow');
+// let eraserBtn = document.getElementById('eraser');
+// let clearBtn = document.getElementById('clear');
 
-function change(color) {
-    let cells = document.querySelectorAll('.cell');
+// function change(button, color) {
+//     let cells = document.querySelectorAll('.cell');
 
-    cells.forEach(cell => {
-        cell.addEventListener('mouseover', color);
-    })
-}
+//     button.addEventListener('click', () => {
+//         cells.forEach(cell => {
+//             cell.addEventListener('mouseover', color);
+//         })
+//     })
+// }
+
+// change(colorBtn, color);
+// change(rainbowBtn, randomColor);
+// change(eraserBtn, whiteColor);
+
+// function colorBtn() {
+// }
 
 
-function actionCell() {
-    // let eraserBtn = document.getElementById('eraser');
-    // let colorBtn = document.getElementById('color');
-    // let clearBtn = document.getElementById('clear');
-    let buttons = document.querySelectorAll('button');
-    // console.log(buttons);
-    // let cells = document.querySelectorAll('.cell');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            if(button.id === 'eraser') {
-                // cell.style.background = '#fff';
-                console.log(button.id);
-                change(whiteColor);
-                // cells.forEach(cell =>{
-                //     cell.addEventListener('mouseover', whiteColor);
-                // })
-            } else if(button.id === 'rainbow') {
-                console.log(button.id);
-                change(randomColor);
-                // cells.forEach(cell =>{
-                //     cell.addEventListener('mouseover', randomColor);
-                // })
-            } else if(button.id === 'color') {
-                console.log(button.id);
-                change(color);
-            }
-        });
-    })
-    // console.log(eraserBtn.id);
-}
+// function actionCell() {
+//     let buttons = document.querySelectorAll('button');
+//     // console.log(buttons);
+//     // let cells = document.querySelectorAll('.cell');
+//     buttons.forEach(button => {
+//         button.addEventListener('click', () => {
+//             if(button.id === 'eraser') {
+//                 // cell.style.background = '#fff';
+//                 console.log(button.id);
+//                 change(whiteColor);
+//                 // cells.forEach(cell =>{
+//                 //     cell.addEventListener('mouseover', whiteColor);
+//                 // })
+//             } else if(button.id === 'rainbow') {
+//                 console.log(button.id);
+//                 change(randomColor);
+//                 // cells.forEach(cell =>{
+//                 //     cell.addEventListener('mouseover', randomColor);
+//                 // })
+//             } else if(button.id === 'color') {
+//                 console.log(button.id);
+//                 change(color);
+//             }
+//         });
+//     })
+//     // console.log(eraserBtn.id);
+// }
 
 // function gridSize() {
 //     let range = document.getElementById('range');
@@ -189,5 +249,5 @@ function actionCell() {
 // }
 // game();
 
-actionCell();
+// actionCell();
 
