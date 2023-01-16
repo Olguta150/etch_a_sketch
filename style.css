@@ -33,7 +33,7 @@ body {
 
 .cell {
     display: grid;
-    /* border: 1px solid #000; */
+    border: 0.3px solid rgb(231, 231, 231);
     background-color: #fff;
 }
 
