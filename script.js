@@ -30,21 +30,21 @@ function grid(value) {
 
 grid(value);
 
-let cells = document.querySelectorAll('.cell');
+// let cells = document.querySelectorAll('.cell');
 
-function gridSize() {
-    // let range = document.getElementById('range');
-    range.addEventListener('input', () => {
-        // let container = document.querySelector('#container');
-        container.innerHTML = "";
-        grid(range.value);
-        pickColor();
-        rainbow();
-        eraser();
-        console.log('grid size');
-        // clearAll();
-    })
-}
+// function gridSize() {
+//     // let range = document.getElementById('range');
+//     range.addEventListener('input', () => {
+//         // let container = document.querySelector('#container');
+//         container.innerHTML = "";
+//         pickColor();
+//         rainbow();
+//         eraser();
+//         console.log('grid size');
+//         grid(range.value);
+//         // clearAll();
+//     })
+// }
 
 // gridSize();
 
@@ -54,6 +54,7 @@ function randomColor() {
 }
 
 function pickColor() {
+    let cells = document.querySelectorAll('.cell');
     colorBtn.addEventListener('click', () => {
         cells.forEach(cell => {
             cell.addEventListener('mouseover', (e) => {
@@ -67,6 +68,7 @@ function pickColor() {
 // pickColor();
 
 function rainbow() {
+    let cells = document.querySelectorAll('.cell');
     rainbowBtn.addEventListener('click', () => {
         cells.forEach(cell => {
             cell.addEventListener('mouseover', () => {
@@ -78,6 +80,7 @@ function rainbow() {
 }
 
 function eraser() {
+    let cells = document.querySelectorAll('.cell');
     eraserBtn.addEventListener('click', () => {
         cells.forEach(cell => {
             cell.addEventListener('mouseover', () => {
@@ -100,6 +103,22 @@ function clearAll() {
         rainbow();
         eraser();
         console.log('clear all');
+        // console.log('cells:', cells);
+    })
+}
+
+function gridSize() {
+    // let range = document.getElementById('range');
+    range.addEventListener('input', () => {
+        // let container = document.querySelector('#container');
+        container.innerHTML = "";
+        grid(range.value);
+        pickColor();
+        rainbow();
+        eraser();
+        console.log('grid size');
+        // console.log('cells:', cells);
+        // clearAll();
     })
 }
 
@@ -108,6 +127,34 @@ rainbow();
 eraser();
 clearAll();
 gridSize();
+
+// function actionCell() {
+//     let buttons = document.querySelectorAll('button');
+//     // console.log(buttons);
+//     // let cells = document.querySelectorAll('.cell');
+//     buttons.forEach(button => {
+//         button.addEventListener('click', () => {
+//             if(button.id === 'eraser') {
+//                 // cell.style.background = '#fff';
+//                 console.log(button.id);
+//                 change(whiteColor);
+//                 // cells.forEach(cell =>{
+//                 //     cell.addEventListener('mouseover', whiteColor);
+//                 // })
+//             } else if(button.id === 'rainbow') {
+//                 console.log(button.id);
+//                 change(randomColor);
+//                 // cells.forEach(cell =>{
+//                 //     cell.addEventListener('mouseover', randomColor);
+//                 // })
+//             } else if(button.id === 'color') {
+//                 console.log(button.id);
+//                 change(color);
+//             }
+//         });
+//     })
+//     // console.log(eraserBtn.id);
+// }
 
 // function whiteColor() {
 //     return `#fff`;
