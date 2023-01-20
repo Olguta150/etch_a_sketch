@@ -5,6 +5,7 @@ let eraserBtn = document.getElementById('eraser');
 let clearBtn = document.getElementById('clear');
 let container = document.querySelector('#container');
 let range = document.getElementById('range');
+let checkbox = document.querySelector('.checkbox');
 
 let value = 16;
 
@@ -47,6 +48,13 @@ function applyBackground(func) {
 function gridSize() {
     container.innerHTML = '';
     grid(range.value);
+    addGridBorder();
+}
+
+function addGridBorder() {
+    let cells = document.querySelectorAll('.cell');
+
+    cells.forEach(cell => checkbox.checked == true ? cell.classList.add('grid') : cell.classList.remove('grid'));
 }
 
 colorBtn.onclick = () => applyBackground(pickColor);
@@ -54,3 +62,4 @@ rainbowBtn.onclick = () => applyBackground(randomColor);
 eraserBtn.onclick = () => applyBackground(whiteColor);
 clearBtn.onclick = () => gridSize();
 range.oninput = () => gridSize();
+checkbox.onclick = () => addGridBorder();
