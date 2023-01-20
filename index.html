@@ -11,19 +11,24 @@
 <body>
     <div id="main">
         <div id="title">Etch a sketch</div>
-        <div id="container"></div>
-        <div id="actions">
-            <div id="buttons">
-                <button id="color" class="btn">
-                    <input type="color" name="color" id="color-input" value="#000000" >
-                    Color
-                </button>
-                <button id="rainbow" class="btn">Rainbow</button>
-                <button id="eraser" class="btn">Eraser</button>
-                <button id="clear" class="btn">Clear</button>
+        <div class="content">
+            <div id="actions">
+                <div id="buttons">
+                    <input type="color" name="color" id="color-input" value="#90dbe1" >
+                    <button id="color" class="btn">Color</button>
+                    <button id="rainbow" class="btn">Rainbow</button>
+                    <button id="eraser" class="btn">Eraser</button>
+                    <button id="clear" class="btn">Clear</button>
+                    <div class="btn check">
+                        <input type="checkbox" id="switch" class="checkbox">
+                        <label for="switch" class="toggle"></label>
+                    </div>
+                </div>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="16" id="range">
+            <div>
+                <div id="container"></div>
+                <input type="range" min="1" max="70" value="16" id="range">
+                </div>
             </div>
         </div>
     </div>
