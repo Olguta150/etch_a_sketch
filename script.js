@@ -6,6 +6,7 @@ let clearBtn = document.getElementById('clear');
 let container = document.querySelector('#container');
 let range = document.getElementById('range');
 let checkbox = document.querySelector('.checkbox');
+let shadowBtn = document.getElementById('shadow');
 
 let value = 16;
 
@@ -53,8 +54,18 @@ function gridSize() {
 
 function addGridBorder() {
     let cells = document.querySelectorAll('.cell');
-
     cells.forEach(cell => checkbox.checked == true ? cell.classList.add('grid') : cell.classList.remove('grid'));
+}
+
+function addOpacity() {
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.background = 'black';
+            let opacity = cell.style.opacity;
+            cell.style.opacity = (Number(opacity) + 0.1);
+        })
+    })
 }
 
 colorBtn.onclick = () => applyBackground(pickColor);
@@ -63,3 +74,4 @@ eraserBtn.onclick = () => applyBackground(whiteColor);
 clearBtn.onclick = () => gridSize();
 range.oninput = () => gridSize();
 checkbox.onclick = () => addGridBorder();
+shadowBtn.onclick = () => addOpacity();
