@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: blanchedalmond;
+    background-color: #f2e8cf;
 }
 
 #main {
@@ -21,14 +21,17 @@ body {
 
 #title {
     padding-top: 55px;
-    font-size: 60px;
+    margin-left: 200px;
+    font-weight: 800;
+    font-size: 90px;
+    color: #091540;
 }
 
 #container {
     display: grid;
     width: 600px;
     height: 600px;
-    box-shadow: 10px 10px 7px rgba(144, 219, 225, 0.1);
+    box-shadow: 10px 10px 7px rgba(9, 21, 64, 0.2);
 }
 
 .content {
@@ -57,7 +60,15 @@ body {
     padding: 15px 25px;
     font-size: 20px;
     font-weight: 600;
-    box-shadow: 5px 5px 5px rgba(144, 219, 225, 1);
+    color: #091540;
+    box-shadow: 5px 5px 5px rgba(9, 21, 64, 0.6);
+    border-color: #091540 #f2e8cf #f2e8cf #091540;
+    border-width: 1px;
+    transition: scale 0.5s;
+}
+
+.btn:hover {
+    scale: 0.9;
 }
 
 #color-input {
@@ -82,8 +93,8 @@ body {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 10px;
-    background:rgba(160, 249, 255, 0.3);
+    height: 7px;
+    background: #091540;
     border: 1px solid #000;
     border-radius: 2px;
     margin-top: 20px;
@@ -95,7 +106,7 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background:rgb(171, 220, 224);
+    background: #f2e8cf;
 }
 
 #range::-moz-range-thumb {
@@ -110,9 +121,9 @@ body {
     position: relative;
     display: inline-block;
     width: 100px;
-    height: 52px;
-    background-color:rgba(0, 0, 0, 0.05);
-    border: 1px solid #000;
+    height: 40px;
+    background-color: #f2e8cf;
+    border: 1px solid #091540;
     border-radius: 30px;
     transition: all 0.5s;
 }
@@ -120,21 +131,22 @@ body {
 .toggle:after {
     content: '';
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     left: 0px;
-    border: 1px solid #000;
+    border: 1px solid #091540;
     border-radius: 50%;
-    background-color: rgb(231, 231, 231);
+    background-color: #091540;
     transition: all 0.3s;
 }
 
 .checkbox:checked + .toggle::after {
-    left: 49px;
+    left: 60px;
+    background-color: #f2e8cf;
 }
 
 .checkbox:checked + .toggle {
-    background: rgb(171, 220, 224);
+    background: rgba(9, 21, 64);
 }
 
 .checkbox {
@@ -146,8 +158,5 @@ body {
 }
 
 /*
-add grid on/of button -> DONE
-add button to increase the color's visibility
-add button to decrease the color's visibility
-style the buttons -> DONE
+add active style to buttons
  */
