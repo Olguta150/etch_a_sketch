@@ -157,6 +157,12 @@ body {
     box-shadow: none;
 }
 
-/*
-add active style to buttons
- */
+.check:hover {
+    scale: 1;
+}
+
+.active {
+    background: #091540;
+    border-color: #f2e8cf;
+    color: #f2e8cf;
+}
