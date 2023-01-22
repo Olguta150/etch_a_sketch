@@ -7,6 +7,7 @@ let container = document.querySelector('#container');
 let range = document.getElementById('range');
 let checkbox = document.querySelector('.checkbox');
 let shadowBtn = document.getElementById('shadow');
+let btns = document.querySelectorAll('.add-active');
 
 let value = 16;
 
@@ -68,10 +69,21 @@ function addOpacity() {
     })
 }
 
+function addFocus() {
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(btn => btn.classList.remove('active'))
+
+            btn.classList.add('active');
+        })
+    })
+}
+
 colorBtn.onclick = () => applyBackground(pickColor);
 rainbowBtn.onclick = () => applyBackground(randomColor);
 eraserBtn.onclick = () => applyBackground(whiteColor);
+shadowBtn.onclick = () => addOpacity();
 clearBtn.onclick = () => gridSize();
 range.oninput = () => gridSize();
 checkbox.onclick = () => addGridBorder();
-shadowBtn.onclick = () => addOpacity();
+addFocus();
