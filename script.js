@@ -9,7 +9,7 @@ let checkbox = document.querySelector('.checkbox');
 let shadowBtn = document.getElementById('shadow');
 let btns = document.querySelectorAll('.add-active');
 
-let value = 16;
+let defaultValue = 16;
 
 function grid(value) {
     container.style.display = 'grid';
